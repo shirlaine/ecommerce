@@ -1,33 +1,22 @@
-# Readme for Rails-Template
+# Functionality
+- An e-commerce app built with Ruby-on-rails
 
-## Description
-This repository contains a quickstart template for a new rails app using the postgresql database, and rspec testing framework
+# Built with
+- Ruby on Rails v.5.1.4
+- Postgres SQL Database
+- Deployed with Heroku
 
-## Quickstart guide
+# Installation
+- Get codebase `https://github.com/shirlaine/tweeter.git`
+- Install Gem Dependencies `cd ecommerce` `bundle install`
+- Database Setup `bin/rake db:create db:migrate db:seed`
+- Run server `bin/rails server`
+- Open browser at `http://localhost:3000`
 
-$`git clone https://github.com/shirlaine/rails-template.git`
+# Test
 
-$`cd rails-template`
+- Tests during development use RSpec, Shoulda Matchers, Factory - Bot Rails
 
-$`bundle install`
+# Heroku
 
-## Database Setup
-- `$ bin/rake db:create`
-
-## Integration Test Setup
-- under .circleci/config.yml, replace `rails-template` with `your-app-name`
-
-## Gem List
-- Development:
-  - Bootstrap
-  - Jquery-Rails
-  - Simple_form
-  - Rubocop
-  - Faker
-  - Devise
-
-- Test:
-  - Rspec-rails
-  - Shoulda-Matchers
-  - Factory_bot_rails
-  - Rails-controller-testing
+- This app can be accessed at `TBC`
