@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/rails-template
+    working_directory: ~/ecommerce
     docker:
       - image: circleci/ruby:2.4.1-node
         environment:
