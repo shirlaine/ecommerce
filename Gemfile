@@ -59,6 +59,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # A Ruby gem to load environment variables from `.env`.
   gem 'dotenv'
+  # Facebook OAuth2 Strategy for OmniAuth
+  gem 'omniauth-facebook'
 end
 
 group :development do
