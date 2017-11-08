@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -58,7 +58,7 @@ group :development, :test do
   # Gem for Rspec-controller
   gem 'rails-controller-testing'
   # A Ruby gem to load environment variables from `.env`.
-  gem 'dotenv'
+  gem 'dotenv-rails'
   # Facebook OAuth2 Strategy for OmniAuth
   gem 'omniauth-facebook'
 end
