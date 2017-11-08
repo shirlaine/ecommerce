@@ -57,6 +57,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Gem for Rspec-controller
   gem 'rails-controller-testing'
+  # A Ruby gem to load environment variables from `.env`.
+  gem 'dotenv'
 end
 
 group :development do
