@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
-    name "MyString"
-    description "MyString"
+    name "Milk"
+    description "Full fat milk from NZ."
     image "MyString"
   end
 end
