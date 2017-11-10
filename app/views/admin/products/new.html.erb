@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Create new product</h1>
+
+    <p>
+    <%= simple_form_for @product, url: admin_products_path, method: :post do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.filestack_field :image, 'Upload Your Product Photo!' %>
+      <br>
+      <%= f.submit 'Create Product', class: 'btn btn-info' %>
+    <% end %>
+    </p>
+</div<
+

@@ -11,7 +11,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to root_path
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::ProductsController < ApplicationController
     @products = Product.all
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to products_path
+      redirect_to root_path
     else
       render :edit
     end
