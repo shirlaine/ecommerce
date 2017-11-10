@@ -1,0 +1,10 @@
+h1 edit Products
+
+.container
+  .form-control mr-sm-2
+    = simple_form_for @product, url: edit_product_path(@product), method: :get do |f|
+      = f.input :name
+      = f.input :description
+      /= f.filestack_field :image
+      = f.input :image
+      = f.button :submit

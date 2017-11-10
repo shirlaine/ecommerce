@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module RailsTemplate
   class Application < Rails::Application
+    config.filestack_rails.api_key = ENV["Filestack_API_Key"]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
