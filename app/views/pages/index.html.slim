@@ -7,7 +7,7 @@ h1 Testing Slim-Rails
 p is signed in
 
 br
-<!-- /test filestack image loading
+/test filestack image loading
 
 /= form_for @products do |f|
 
@@ -20,6 +20,8 @@ br
   .row
    -@products.each do |product|
     .card
-        li = product.name
+        = product.name
+        = product.description
+        = product.image
 
 = link_to 'Sign Out', destroy_user_session_path, method: :delete

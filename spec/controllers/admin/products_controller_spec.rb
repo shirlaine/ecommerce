@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProductsController, type: :controller do
+RSpec.describe Admin::ProductsController, type: :controller do
 
   describe 'GET #edit'do
 
@@ -8,5 +8,5 @@ RSpec.describe ProductsController, type: :controller do
       before { get :edit, params: { id: product } }
       it { expect(assigns(:product)).to eq(product) }
   end
-  
+
 end
