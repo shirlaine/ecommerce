@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-4
+    .col-md-6
+      .card style="width: 20rem;height:auto;"
+        .card-title.mx-auto
+          h1 #{@product.name}
+          = filestack_image @product.image, transform: filestack_transform.resize(width:300, height:300)
+          p.card-text
+            = @product.description
+          p
+          = link_to 'Add new product', new_admin_product_path, method: :get, class: 'btn btn-info'
+          p
+          = link_to 'Edit product', edit_admin_product_path, method: :get, class: 'btn btn-info'
+          p
+          = link_to 'Delete product', admin_product_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+
+

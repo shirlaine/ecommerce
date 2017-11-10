@@ -22,15 +22,23 @@ body {
 
 body.pages.index {
 
-.prob-logo {
-  height: 50px;
-  width: 100px;
+  .prob-logo {
+    height: 50px;
+    width: 100px;
+  }
+
+  .nav-link {
+    color: gray;
+    justify-content: center;
+  }
+
 }
 
-.nav-link {
-  color: gray;
-  justify-content: center;
-}
+body.admin-products.show {
 
+  .background {
+    background-color: white;
+    width: 50%;
+  }
 
 }
