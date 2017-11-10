@@ -5,4 +5,6 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :image, presence: true
 
+  accepts_nested_attributes_for :lines
+
 end

@@ -4,8 +4,14 @@
   =simple_form_for @product, url: admin_products_path, method: :post do |f|
     =f.input :name
     =f.input :description
+    =f.simple_fields_for :lines do |t|
+      =t.select(:size, [['250ml', '250ml'], ['375ml', '375ml'], ['500ml', '500ml']])
+      =t.input :price
+      =t.input :quantity
     br
     =f.filestack_field :image, 'Upload Your Product Photo!'
+    br
+
     br
     br
     =f.submit 'Create Product', class: 'btn btn-info'
