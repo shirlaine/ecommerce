@@ -12,11 +12,14 @@ br
 .container
   .row
    -@products.each do |product|
-    .card
-        = filestack_image product.image, transform: filestack_transform.resize(width:200, height:200)
-        p
+    .card style="width: 20rem;height:auto;"
+      .card style="width:50px;"
+        .img.card-img-top
+          = filestack_image product.image
+      .card-body
+        h4.card-title
           = product.name
-        p
+        p.card-text
           = product.description
 
 p
