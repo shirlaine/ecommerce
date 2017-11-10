@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <title>RailsTemplate</title>
@@ -6,8 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= filestack_js_include_tag %>
-    <%= filestack_js_init_tag %> 
   </head>
 
   <body class= "<%= controller.controller_path.parameterize.tr("_","-")%> <%= controller.action_name%>">
