@@ -1,13 +1,12 @@
 .container
   h1 Create new product
 
-  =simple_form_for @product, url: admin_product_path, method: :put do |f|
+  =simple_form_for @product, url: admin_products_path, method: :post do |f|
     =f.input :name
     =f.input :description
     br
     =f.filestack_field :image, 'Upload Your Product Photo!'
     br
     br
-    =f.submit 'Update Product', class: 'btn btn-info'
-
+    =f.submit 'Create Product', class: 'btn btn-info'
 
