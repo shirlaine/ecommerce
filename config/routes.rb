@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   namespace :admin do
-    resources :products
-
-  
+    resources :products, except: [:index]
   end
 
 
