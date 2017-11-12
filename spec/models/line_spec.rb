@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Line, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let (:subject) { create(:line) }
+  it { expect(subject).to validate_presence_of(:price) }
+  it { expect(subject).to validate_presence_of(:quantity) }
+  it { expect(subject).to belong_to(:product) }
 end
