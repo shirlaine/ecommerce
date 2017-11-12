@@ -14,10 +14,16 @@
               = filestack_image product.image, transform: filestack_transform.resize(width:300, height:300)
             .card-body
               p.card-text
-                = product.description
-              p
-                = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm'
-
+                | Description: #{product.description}
+                - product.lines.each do |line|
+                  p
+                    | Size: #{line.size}
+                  p
+                    | Price: $ #{line.price}
+                  p
+                    | Quantity: #{line.quantity}
+                    p
+                      = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm'
       p
       = link_to 'Add new product', new_admin_product_path, method: :get, class: 'btn btn-info'
       p
