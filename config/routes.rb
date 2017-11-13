@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :products, except: [:index]
   end
 
+    controller :pages do
+    get :benefits
+    get :index
+    end
 
 end

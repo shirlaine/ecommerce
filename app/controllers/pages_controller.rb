@@ -6,4 +6,6 @@ class PagesController < ApplicationController
     @products = Product.all
   end
 
+  def benefits
+  end
 end
