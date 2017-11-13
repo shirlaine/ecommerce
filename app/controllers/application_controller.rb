@@ -4,12 +4,23 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_cart
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :firstname, :lastname])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :firstname, :lastname])
+  end
+
+  private
+
+  def set_cart
+    if user_signed_in?
+      Cart.create!(user_id: current_user.id) unless current_user.cart.present?
+    end
+    @cart= current_user.cart if user_signed_in?
   end
 
 end
