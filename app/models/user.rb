@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  has_one :cart
+  has_many :cart_items
+  has_many :lines, through: :cart_items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -13,4 +13,10 @@ Rails.application.routes.draw do
     get :index
     end
 
+
+  resources :carts, only: [:show]
+
+  post '/carts/:line_id', to: 'carts#add'
+  delete 'carts/:line_id', to: 'carts#remove'
+
 end
