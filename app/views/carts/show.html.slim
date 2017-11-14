@@ -12,3 +12,5 @@
       | line_id: #{line.id}
       p
       | product_id: #{line.product.id}
+  p
+  = link_to "Order", cart_path(current_user.cart), method: :get, class: 'btn btn-primary' if user_signed_in?

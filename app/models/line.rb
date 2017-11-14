@@ -2,7 +2,7 @@ class Line < ApplicationRecord
 
   belongs_to :product
   has_many :cart_items
-
+  has_many :orders, through: :cart_items
   validates :price, presence: true
   validates :quantity, presence: true
 
