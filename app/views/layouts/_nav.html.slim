@@ -2,17 +2,20 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand[href="/products"]
     = link_to root_path do
       = image_tag "/assets/problogo.png", class:"prob-logo"
-  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
     span.navbar-toggler-icon
-  #navbarNav.collapse.navbar-collapse
-    ul.navbar-nav
+
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
       li.nav-item
         = link_to "Benefits", benefits_path, method: :get, class:"nav-link"
       li.nav-item
         = link_to "Products", root_path, method: :get, class:"nav-link"
+    .navbar-nav.ml-auto
       - if admin_signed_in?
         = link_to "New Product", new_admin_product_path, method: :get, class:"nav-link"
-        = link_to "Logout", destroy_admin_session_path, method: :delete, class:"nav-item nav-link btn btn-light"
+        = link_to "Logout", destroy_admin_session_path, method: :delete, class:"nav-item nav-link btn btn-warning"
       - elsif user_signed_in?
         = link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-item nav-link btn btn-light"
+      - else
         = link_to "Sign in / Sign up", new_user_session_path, class:"nav-item nav-link btn btn-light"
