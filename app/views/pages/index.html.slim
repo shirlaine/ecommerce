@@ -1,39 +1,52 @@
 .container
-  .row
-    .col-md-12
-      h1 Main Marketplace
-      br
-      /test filestack image loading
-      /= -->
-      .container
-        .row
-         -@products.each do |product|
-          .card style="width: 20rem;height:auto;"
-            .card-title.mx-auto
-              h1 #{product.name}
-              = filestack_image product.image, transform: filestack_transform.resize(width:300, height:300)
-            .card-body
-              p.card-text
-                | Description: #{product.description}
-                - product.lines.each do |line|
-                  p
-                    | Size: #{line.size}
-                  p
-                    | Price: $ #{line.price}
-                  p
-                    | ID: #{line.id}
+  nav.product-filter
+    h1
+      | Products Marketplace
+    .sort
+      .collection-sort
+        label
+          | Filter by:
+        select
+          option[value="/"]
+            | All Products
+      .collection-sort
+        label
+          | Sort by:
+        select
+          option[value="/"]
+            | Featured
+br
+br
+.container
+  .section.products
+   -@products.each do |product|
+    .card.product-card
+      .card-title.mx-auto
+        h3 #{product.name}
+        .product-image
+          = filestack_image product.image, transform: filestack_transform.resize(width:300, height:300)
+      .product-info
+        h6.card-text
+          | Description: #{product.description}
+          - product.lines.each do |line|
+            p
+              | Size: #{line.size}
+            p
+              | Price: $ #{line.price}
+            p
+              | ID: #{line.id}
 
-                  p
-                    = link_to 'Add to Cart', cart_path(line), method: :post, class: 'btn btn-info btn-sm' if user_signed_in?
+            p
+              = link_to 'Add to Cart', cart_path(line), method: :post, class: 'btn btn-info btn-sm' if user_signed_in?
 
-                    p
-                      = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm'
+            p
+              = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm' if admin_signed_in?
 
 
-      p
-      = link_to "Cart (#{current_user.cart_items.count})", cart_path(current_user.cart), method: :get, class: 'btn btn-primary' if user_signed_in?
-      p
-      = link_to 'User Sign In', new_user_session_path, method: :get, class: 'btn btn-primary' unless user_signed_in?
-      p
-      = link_to 'Sign Out', destroy_user_session_path, method: :delete,
-      class: 'btn btn-danger'
+  p
+  = link_to "Cart (#{current_user.cart_items.count})", cart_path(current_user.cart), method: :get, class: 'btn btn-primary' if user_signed_in?
+  p
+  = link_to 'User Sign In', new_user_session_path, method: :get, class: 'btn btn-primary' unless user_signed_in?
+  p
+  = link_to 'Sign Out', destroy_user_session_path, method: :delete,
+  class: 'btn btn-danger'
