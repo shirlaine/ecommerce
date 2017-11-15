@@ -41,9 +41,9 @@ RSpec.describe Admin::ProductsController, type: :controller do
   end
 
   describe 'GET #edit'do
-    let(:product_1) { create(:product) }
-      before { get :edit, params: { id: product_1 } }
-      it { expect(assigns(:product)).to eq(product_1) }
+    # let(:product_1) { create(:product) }
+    #   before { get :edit, params: { id: product_1 } }
+    #   it { expect(assigns(:product)).to eq(product_1) }
   end
 
   describe 'PUT/PATCH #update' do
