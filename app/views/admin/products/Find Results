@@ -1,0 +1,44 @@
+Searching 715 files for "quantity"
+
+/Users/Shirlaine/Workspace/Github/ecommerce/app/controllers/admin/lines_controller.rb:
+   16  #       =t.select(:size, [['250ml', '250ml'], ['375ml', '375ml'], ['500ml', '500ml']])
+   17  #       =t.input :price
+   19  #     br
+   20  #     =f.filestack_field :image, 'Upload Your Product Photo!'
+
+/Users/Shirlaine/Workspace/Github/ecommerce/app/models/line.rb:
+    5    has_many :orders
+    6    validates :price, presence: true
+    7:
+    8
+    9    enum size: {
+
+/Users/Shirlaine/Workspace/Github/ecommerce/db/migrate/20171110144552_create_lines.rb:
+    3      create_table :lines do |t|
+    4        t.decimal :price, null: false
+    5:       t.integer :quantity, null: false
+    6        t.integer :size, default: 0
+    7        t.references :product, index: true
+
+/Users/Shirlaine/Workspace/Github/ecommerce/db/migrate/20171115152009_remove_column_from_line.rb:
+    1  class RemoveColumnFromLine < ActiveRecord::Migration[5.1]
+    2    def change
+    3:     remove_column :lines, :quantity
+    4    end
+    5  end
+
+/Users/Shirlaine/Workspace/Github/ecommerce/spec/factories/lines.rb:
+    3      product
+    4      price 5.50
+    5:
+    6      size 0
+    7    end
+
+/Users/Shirlaine/Workspace/Github/ecommerce/spec/models/line_spec.rb:
+    4    let (:subject) { create(:line) }
+    5    it { expect(subject).to validate_presence_of(:price) }
+    6
+    7    it { expect(subject).to belong_to(:product) }
+    8  end
+
+6 matches across 6 files

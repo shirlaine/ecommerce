@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products, except: [:index]
+    resources :lines, only: [:update]
   end
 
     controller :pages do
     get :benefits
     get :index
     end
-
 
   resources :carts, only: [:show]
   resources :orders, only: [:show]

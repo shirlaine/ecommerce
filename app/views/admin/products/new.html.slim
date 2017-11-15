@@ -5,9 +5,8 @@
     =f.input :name
     =f.input :description
     =f.simple_fields_for :lines do |t|
-      =t.select(:size, [['250ml', '250ml'], ['375ml', '375ml'], ['500ml', '500ml']])
+      =t.select(:size, [['250ml', '250ml'], ['375ml', '375ml'], ['500ml', '500ml'], ['N.A', 'N.A']])
       =t.input :price
-      =t.input :quantity
     br
     =f.filestack_field :image, 'Upload Your Product Photo!'
     br
