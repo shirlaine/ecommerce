@@ -5,9 +5,11 @@ html
       | ProB Marketplace
     = filestack_js_include_tag
     = filestack_js_init_tag
+    = include_gon
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script[src="https://js.braintreegateway.com/v2/braintree.js"]
   |  <body class= "
   = controller.controller_path.parameterize.tr("_","-")
   = controller.action_name
