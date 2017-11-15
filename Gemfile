@@ -45,6 +45,8 @@ gem 'devise'
 gem 'slim-rails'
 # HTML2Slim
 gem 'html2slim'
+# Braintree for payments
+gem 'braintree', '~> 2.33.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
