@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
 
   def set_cart
     if user_signed_in?
-      Cart.create!(user_id: current_user.id) unless current_user.cart.present?
+      Cart.create!(user_id: current_user.id) if current_user.cart.blank?
     end
-    @cart= current_user.cart if user_signed_in?
+    @cart = current_user.cart if user_signed_in?
   end
 
 end

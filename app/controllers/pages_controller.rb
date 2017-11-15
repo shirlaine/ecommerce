@@ -5,6 +5,6 @@ class PagesController < ApplicationController
     @cart_item = CartItem.new
   end
 
-  def benefits
-  end
+  def benefits; end
+
 end

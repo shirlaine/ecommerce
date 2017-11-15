@@ -22,6 +22,7 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @line = @product.lines.find(params[:id])
   end
 
   def update
@@ -46,7 +47,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, lines_attributes: [:size, :price, :quantity])
+    params.require(:product).permit(:name, :description, :image, lines_attributes: [:size, :price])
   end
 
 end
