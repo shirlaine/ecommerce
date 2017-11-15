@@ -15,7 +15,6 @@
         select
           option[value="/"]
             | Featured
-
 br
 br
 .container
@@ -35,21 +34,19 @@ br
             p
               | Price: $ #{line.price}
             p
-              | Quantity: #{line.quantity}
-            p
               | ID: #{line.id}
 
             p
-              = link_to 'Add to Cart', cart_path(line), method: :post, class: 'btn btn-info btn-sm'
+              = link_to 'Add to Cart', cart_path(line), method: :post, class: 'btn btn-info btn-sm' if user_signed_in?
 
-              p
-                = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm'
-                =
+            p
+              = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm' if admin_signed_in?
 
-      p
-      = link_to "Cart (#{current_user.cart_items.count})", cart_path(current_user.cart), method: :get, class: 'btn btn-primary' if user_signed_in?
-      p
-      = link_to 'User Sign In', new_user_session_path, method: :get, class: 'btn btn-primary' unless user_signed_in?
-      p
-      = link_to 'Sign Out', destroy_user_session_path, method: :delete,
-      class: 'btn btn-danger'
+
+  p
+  = link_to "Cart (#{current_user.cart_items.count})", cart_path(current_user.cart), method: :get, class: 'btn btn-primary' if user_signed_in?
+  p
+  = link_to 'User Sign In', new_user_session_path, method: :get, class: 'btn btn-primary' unless user_signed_in?
+  p
+  = link_to 'Sign Out', destroy_user_session_path, method: :delete,
+  class: 'btn btn-danger'
