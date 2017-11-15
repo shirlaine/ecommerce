@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  cattr_accessor :current_user
+
   has_one :cart
   has_many :cart_items
   has_many :orders

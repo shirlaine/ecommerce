@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_current_user
   before_action :set_cart
 
   protected
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_current_user
+    User.current_user = current_user
+  end
 
   def set_cart
     if user_signed_in?
