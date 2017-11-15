@@ -41,6 +41,7 @@ class User < ApplicationRecord
   def purchase_cart_products!
     get_cart_products.each { |product| purchase(product)}
     Cart.destroy(current_user.cart.id)
+    CartItem.destroy_all
   end
 
   def purchase(product)
