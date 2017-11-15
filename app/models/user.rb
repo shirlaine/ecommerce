@@ -1,11 +1,14 @@
 class User < ApplicationRecord
 
   has_one :cart
-  has_many :lines, through: :orders
   has_many :cart_items
+  has_many :orders
+
+
+  has_many :orderlines, foreign_key: "user_id", class_name: "Line", through: :orders, source: :line
+
   has_many :lines, through: :cart_items
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
