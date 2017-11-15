@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :cart_items
   has_many :orders
 
-
-  has_many :orderlines, foreign_key: "user_id", class_name: "Line", through: :orders, source: :line
+  has_many :orderlines, foreign_key: 'user_id', class_name: 'Line', through: :orders, source: :line
 
   has_many :lines, through: :cart_items
 
@@ -41,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def purchase_cart_products!
-    get_cart_products.each { |product| purchase(product)}
+    get_cart_products.each { |product| purchase(product) }
     Cart.destroy(current_user.cart.id)
     CartItem.destroy_all
   end
@@ -55,6 +54,3 @@ class User < ApplicationRecord
   end
 
 end
-
-
-
