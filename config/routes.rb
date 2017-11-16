@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   resources :transactions, only: [:new, :create]
   post '/sendmail', to: 'pages#sendmail'
 
+
 end
