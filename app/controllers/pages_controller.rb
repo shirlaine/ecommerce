@@ -7,4 +7,8 @@ class PagesController < ApplicationController
 
   def benefits; end
 
+  def sendmail
+    UserMailer.purchase_successful(current_user).deliver_now
+  end
+
 end

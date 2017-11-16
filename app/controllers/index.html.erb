@@ -1,0 +1,26 @@
+<h1>Hi <%= @user.capitalize %>!</h1>
+<table>
+  <h4>Tweets</h4>
+  <tr>
+    <th>User</th>
+    <th>Tweet</th>
+    <th>Tweeted on</th>
+    <th>Action</th>
+  </tr>
+
+    <tr>
+      <% @tweets.each do |tweet| %>
+      <td><%= link_to tweet.user.first_name.capitalize, tweet_path(tweet.id)%> </td>
+      <td><%= tweet.body %> </td>
+      <td><%= tweet.created_at.strftime("%e %b at %l:%M%p") %> </td>
+
+      <td><%= link_to 'Show', tweet_path(tweet.id) %></td>
+      <td><%= link_to 'Edit', edit_tweet_path(tweet.id)%></td>
+      <td><%= link_to 'Delete', tweet_path(tweet.id), method: :delete %></td>
+    </tr>
+  </tr>
+  <% end %>
+</table> <br>
+<%= link_to 'Tweet Now', new_tweet_path%>
+<%= link_to 'View Users', profiles_path %>
+<%= link_to 'Sign-out', destroy_user_session_path, method: :delete %>
