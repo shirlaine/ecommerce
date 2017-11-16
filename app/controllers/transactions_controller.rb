@@ -1,10 +1,14 @@
 class TransactionsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :check_cart!
+  # before_action :check_cart!
 
   def new
-    gon.client_token = generate_client_token
+    if current_user && session_cart
+      session_cart.each { |id| current_user.cart_items.create(user_id: current_user, line_id: id) }
+
+      gon.client_token = generate_client_token
+    end
   end
 
   def create
@@ -28,11 +32,11 @@ class TransactionsController < ApplicationController
     Braintree::ClientToken.generate
   end
 
-  def check_cart!
-    if current_user.get_cart_products.blank?
-      flash[:alert] = 'Please add some items to your cart before checking out!'
-      redirect_to root_path
-    end
-  end
+  # def check_cart!
+  #   if current_user.get_cart_products.blank?
+  #     flash[:alert] = 'Please add some items to your cart before checking out!'
+  #     redirect_to root_path
+  #   end
+  # end
 
 end

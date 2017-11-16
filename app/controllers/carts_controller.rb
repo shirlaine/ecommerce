@@ -19,7 +19,7 @@ class CartsController < ApplicationController
       session_cart << params[:line_id].to_i
     end
     flash[:notice] = 'Item has been added to cart'
-    redirect_to cart_path
+    redirect_to root_path
   end
 
   def remove

@@ -15,4 +15,7 @@
       p
       | product_id: #{line.product.id}
   p
-  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart']||current_user.get_cart_products.blank?
+  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart'].blank? if !current_user
+  p
+  =
+  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless current_user.get_cart_products.blank? if current_user
