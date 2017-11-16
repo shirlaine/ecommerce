@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   post '/carts/:line_id', to: 'carts#add'
   delete 'carts/:line_id', to: 'carts#remove'
 
+  post '/sendmail', to: 'pages#sendmail'
+
   resources :transactions, only: [:new, :create]
 end
