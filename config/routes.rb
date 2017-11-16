@@ -16,12 +16,12 @@ Rails.application.routes.draw do
     get :index
     end
 
-  resources :carts, only: [:show]
   resources :orders, only: [:show]
   resources :transactions, only: [:new, :create]
 
-  post '/carts/:line_id', to: 'carts#add'
-  delete 'carts/:line_id', to: 'carts#remove'
+  resource :cart, only: [:show]
+  post '/cart/:line_id', to: 'carts#add', as: 'add_to_cart'
+  delete 'cart/:line_id', to: 'carts#remove', as: 'remove_from_cart'
 
   post '/sendmail', to: 'pages#sendmail'
 

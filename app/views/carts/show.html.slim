@@ -1,16 +1,21 @@
 .container
   h1 Cart#show
 
-  = current_user.username
-  |'s cart
+  | #{current_user.username if current_user}
+  | Guest Cart #{if !current_user}
+
+  =
 
   - @products.each do |line|
       p
       | Product: #{line.product.name}
-      = link_to 'Delete from Cart', cart_path(line.id), method: :delete, class: 'btn btn-danger btn-sm'
+      = link_to 'Delete from Cart', remove_from_cart_path(line), method: :delete, class: 'btn btn-danger btn-sm'
       p
       | line_id: #{line.id}
       p
       | product_id: #{line.product.id}
   p
-  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless current_user.get_cart_products.blank?
+  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart'].blank? if !current_user
+  p
+  =
+  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless current_user.get_cart_products.blank? if current_user
