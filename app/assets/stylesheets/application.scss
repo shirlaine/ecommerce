@@ -15,6 +15,10 @@
  */
 @import "bootstrap";
 
+.signup {
+  padding: 25px;
+}
+
 body {
   background-image: url(background.jpg);
   background-size: cover;
@@ -85,7 +89,7 @@ body.admin-products.show {
 
 .product-card {
   padding: 2%;
-  flex: 1 16%;
+  flex: 1 25%;
 }
 
 .product-image img {
@@ -95,6 +99,7 @@ body.admin-products.show {
 .product-info {
   margin-top: auto;
 }
+
 
 @media (max-width: 920px) {
   .product-card {

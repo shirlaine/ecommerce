@@ -1,20 +1,21 @@
 .container
-  nav.product-filter
-    h1
-      | Products Marketplace
-    .sort
-      .collection-sort
-        label
-          | Filter by:
-        select
-          option[value="/"]
-            | All Products
-      .collection-sort
-        label
-          | Sort by:
-        select
-          option[value="/"]
-            | Featured
+  .flex
+    nav.product-filter
+      h1
+        | Products Marketplace
+      .sort
+        .collection-sort
+          label
+            | Filter by:
+          select
+            option[value="/"]
+              | All Products
+        .collection-sort
+          label
+            | Sort by:
+          select
+            option[value="/"]
+              | Featured
 br
 br
 .container
@@ -41,5 +42,3 @@ br
 
             p
               = link_to 'Show Product', admin_product_path(product), method: :get, class: 'btn btn-info btn-sm' if admin_signed_in?
-
-
