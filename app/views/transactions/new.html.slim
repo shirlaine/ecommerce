@@ -1,0 +1,11 @@
+.container
+  .form-container.radius-box.glassy-bg.small-10.small-centered.medium-8.large-6.columns
+    h2.mbs
+      | New Transaction
+    p
+    = form_tag transactions_path do
+      p
+        | Please enter your payment details:
+      #dropin
+      p
+      = submit_tag "Pay $#{current_user.cart_total_price}", class: "btn-primary"

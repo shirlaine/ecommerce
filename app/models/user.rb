@@ -1,11 +1,15 @@
 class User < ApplicationRecord
 
-  has_one :cart
-  has_many :lines, through: :orders
-  has_many :cart_items
+  cattr_accessor :current_user
+
+  has_one :cart, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
+
+  has_many :orderlines, foreign_key: 'user_id', class_name: 'Line', through: :orders, source: :line
+
   has_many :lines, through: :cart_items
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
@@ -23,6 +27,30 @@ class User < ApplicationRecord
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end
+  end
+
+  def cart_total_price
+    total_price = 0
+    get_cart_products.each { |product| total_price += product.price }
+    total_price
+  end
+
+  def get_cart_products
+    current_user.lines
+  end
+
+  def purchase_cart_products!
+    get_cart_products.each { |product| purchase(product) }
+    Cart.destroy(current_user.cart.id)
+    CartItem.destroy_all
+  end
+
+  def purchase(product)
+    lines << product unless purchase?(product)
+  end
+
+  def purchase?(product)
+    lines.include?(product)
   end
 
 end

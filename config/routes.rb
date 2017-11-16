@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'transactions/new'
+
   devise_for :admins
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -20,4 +22,5 @@ Rails.application.routes.draw do
   post '/carts/:line_id', to: 'carts#add'
   delete 'carts/:line_id', to: 'carts#remove'
 
+  resources :transactions, only: [:new, :create]
 end
