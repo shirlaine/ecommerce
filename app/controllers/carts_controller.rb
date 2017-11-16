@@ -13,14 +13,20 @@ class CartsController < ApplicationController
   end
 
   def add
+<<<<<<< HEAD
     if current_user
       @cart_item = CartItem.create(user_id: current_user.id, line_id: params[:line_id])
     else
       session_cart << params[:line_id].to_i
     end
+=======
+    @cart_item = CartItem.create(user_id: current_user.id, line_id: params[:line_id], :quantity => 1)
+    @cart_item.save
+>>>>>>> cart items
     flash[:notice] = 'Item has been added to cart'
     redirect_to root_path
   end
+
 
   def remove
     if current_user

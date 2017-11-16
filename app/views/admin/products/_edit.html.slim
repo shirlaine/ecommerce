@@ -1,0 +1,17 @@
+.container
+  = simple_form_for @product, url: admin_product_path, method: :put do |f|
+    =f.input :name
+    =f.input :description
+    ul
+    .edit-button
+      =f.filestack_field :image, 'Change Product Photo!', class:'btn btn-info'
+
+
+    .edit-button
+      =f.submit 'Update Product', class:'btn btn-outline-success'
+
+  = simple_form_for @line, url:  admin_line_path, method: :put do |t|
+    =t.input :price
+
+    p
+    =t.submit 'Price', class: 'btn btn-info'

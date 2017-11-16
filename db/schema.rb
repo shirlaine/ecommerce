@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171116235435) do
     t.bigint "line_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
     t.index ["line_id"], name: "index_cart_items_on_line_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
@@ -57,6 +58,8 @@ ActiveRecord::Schema.define(version: 20171116235435) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stock"
+    t.string "sku"
     t.index ["product_id"], name: "index_lines_on_product_id"
   end
 
