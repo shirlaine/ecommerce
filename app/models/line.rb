@@ -1,8 +1,8 @@
 class Line < ApplicationRecord
 
   belongs_to :product
-  has_many :cart_items
-  has_many :orders
+  has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
   validates :price, presence: true
 
   enum size: {

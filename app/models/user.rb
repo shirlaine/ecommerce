@@ -2,9 +2,9 @@ class User < ApplicationRecord
 
   cattr_accessor :current_user
 
-  has_one :cart
-  has_many :cart_items
-  has_many :orders
+  has_one :cart, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   has_many :orderlines, foreign_key: 'user_id', class_name: 'Line', through: :orders, source: :line
 
