@@ -7,14 +7,10 @@ class CartItem < ApplicationRecord
     price * quantity
   end
 
-  def show
-    @cart_item = CartItem.find_by(cart_item_params)
-  end
-
 
 private
 
   def cart_item_params
-    params.require
-
+    params.require(:cart_item).permit(:user_id, :line_id, :quantity)
+  end
 end

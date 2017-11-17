@@ -4,21 +4,36 @@
   | #{current_user.username if current_user}
   | Guest Cart #{if !current_user}
 
-  =
 
-  - @products.each do |line|
-      p
-      | Product: #{line.product.name}
-      = link_to 'Delete from Cart', remove_from_cart_path(line), method: :delete, class: 'btn btn-danger btn-sm'
-      p
-      | line_id: #{line.id}
-      p
-      | product_id: #{line.product.id}
-      p
-    = @cart_item.quantity
-      /= simple_form_for @cart_item, cart_path(line.id), method: :get do |f|
-        = f.input :quantity, as: :integer
-        = f.submit
+  table.table
+    thead
+      tr
+        th[scope="col"]
+          | #
+        th[scope="col"]
+          | Quantity
+        th[scope="col"]
+          | Product
+        th[scope="col"]
+          | Price (Each)
+        th[scope="col"]
+          | Sub Total
+        th
+          |
+    tbody
+      - @presenter.bundles.each.with_index(1) do |bundle_item, index|
+        tr
+          td = index
+          td = bundle_item.quantity
+          td = bundle_item.name
+          td = bundle_item.price
+          td = bundle_item.subtotal
+          td = link_to 'Delete from Cart', remove_from_cart_path(bundle_item.line_id), method: :delete, class: 'btn btn-danger btn-sm'
+
+
+
+= current_user.cart_total_price
+
   p
   = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart'].blank? if !current_user
   p

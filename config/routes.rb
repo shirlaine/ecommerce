@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show, :create]
   resources :transactions, only: [:new, :create]
-  resources :cart_items
 
+  
   resource :cart, only: [:show]
   post '/cart/:line_id', to: 'carts#add', as: 'add_to_cart'
   delete 'cart/:line_id', to: 'carts#remove', as: 'remove_from_cart'

@@ -16,7 +16,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         = link_to "New Product", new_admin_product_path, method: :get, class:"nav-link"
         = link_to "Logout", destroy_admin_session_path, method: :delete, class:"nav-item nav-link btn btn-warning"
       - elsif user_signed_in?&& current_user.cart.present?
-        = link_to "@#{current_user.username} Cart (#{current_user.cart_items.count})", cart_path(current_user.cart), method: :get, class: 'btn btn-light'
+        = link_to "@#{current_user.username} Cart (#{current_user.cart_items.count})", cart_path, method: :get, class: 'btn btn-light'
         = link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-item nav-link btn btn-light"
       - elsif user_signed_in?||admin_signed_in?
         = link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-item nav-link btn btn-light"
