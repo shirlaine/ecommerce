@@ -19,6 +19,7 @@
   padding: 25px;
 }
 
+
 body {
   background-image: url(background.jpg);
   background-size: cover;
@@ -129,5 +130,10 @@ body.admin-products.show {
 }
 
 .card.product-card {
+  margin: 10px;
+}
+
+.edit-button {
+  padding: 8px;
   margin: 10px;
 }

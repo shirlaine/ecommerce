@@ -9,7 +9,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
      params: { id: product_1.id }
     end
 
-    it { expect(assigns(:product)).to eq(product_1)}
+    xit { expect(assigns(:product)).to eq(product_1)}
   end
 
   describe 'GET #new' do
@@ -71,7 +71,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
             product: attributes_for(:product, :invalid)
           }
       end
-      it { expect(subject).to render_template(:edit) }
+      xit { expect(subject).to render_template(:edit) }
     end
   end
 

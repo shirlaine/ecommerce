@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @line = Line.find(params[:id])
   end
 
   def new
@@ -47,7 +48,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, lines_attributes: [:size, :price])
+    params.require(:product).permit(:name, :description, :image, lines_attributes: [:size, :price, :stock])
   end
 
 end
