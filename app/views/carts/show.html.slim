@@ -1,7 +1,8 @@
 .container
-  h1 Your Shopping Cart
+  .card.product-card
+    h1 Your Shopping Cart
 
-    | @#{current_user.username if current_user}
+      | @#{current_user.username if current_user}
 
 
   .container
