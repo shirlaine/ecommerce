@@ -7,13 +7,14 @@ class Admin::LinesController < ApplicationController
     redirect_to root_path
   end
 
-  
+
 
 
   private
 
   def set_line
     @line = Line.find(params[:id])
+  end
 
   def line_params
     params.require(:line).permit(:price, :size, :stock, :sku)

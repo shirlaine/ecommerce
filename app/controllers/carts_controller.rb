@@ -16,6 +16,7 @@ class CartsController < ApplicationController
   end
 
   def add
+    if current_user
       @cart_item = CartItem.create(user_id: current_user.id, line_id: params[:line_id], quantity: 1)
       @cart_item.save
 

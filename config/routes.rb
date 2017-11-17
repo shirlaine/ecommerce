@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
+  #devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create]
   resources :transactions, only: [:new, :create]
 
-  
+
   resource :cart, only: [:show]
   post '/cart/:line_id', to: 'carts#add', as: 'add_to_cart'
   delete 'cart/:line_id', to: 'carts#remove', as: 'remove_from_cart'
