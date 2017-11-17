@@ -1,8 +1,7 @@
 .container
-  h1 Checkout
-  p code still building wait a moment please
-  p delivery address here
-  p delivery date here
-  p order summary here
-  p payment button here
-  p = button_to 'Send Receipt', sendmail_path
+  h1 Order Summary Page
+  h6.card-text
+    p = "Name: #{current_user.firstname.capitalize} #{ current_user.lastname.capitalize}"
+    p = "Shipping Address: #{current_user.address}"
+    p = "Total: #{current_user.cart_total_price}"
+  p = button_to 'Send Receipt', sendmail_path, class:"btn btn-info"

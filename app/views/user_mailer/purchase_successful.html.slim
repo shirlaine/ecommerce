@@ -1,7 +1,7 @@
 h1
-  | Thank you for your order, #{@user.firstname}
+  | Thank you for your order, #{@user.firstname.capitalize}
 p
-  | Your purchase was successful. Your ProB products will be shipped to you soon.
+  | Your purchase for the amount of $#{@user.cart_total_price} was successful. Your ProB products will be shipped to  #{@user.address} soon.
   br/
 p
   | To check our latest offerings, just follow this link: #{@url}.
