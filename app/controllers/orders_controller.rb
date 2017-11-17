@@ -2,10 +2,8 @@ class OrdersController < ApplicationController
 
   before_action :authenticate_user!
 
-  def show
-  end
+  def show; end
 
-  def create
-  end
+  def create; end
 
 end
