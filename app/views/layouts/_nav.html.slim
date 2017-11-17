@@ -21,6 +21,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       - elsif user_signed_in?||admin_signed_in?
         = link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-item nav-link btn btn-light"
       - else
-        = link_to "Guest Cart (#{session['cart'].count if session['cart']})", cart_path, method: :get, class: 'btn btn-light'
+        = link_to "Guest Cart (#{session['cart'].count if session['cart']})", new_user_session_path, method: :get, class: 'btn btn-light'
         = link_to "User Sign In", new_user_session_path, class:"nav-item nav-link btn btn-info btn-sm"
         = link_to "Admin?", new_admin_session_path, class: "nav-item nav-link btn btn-warning btn-sm"

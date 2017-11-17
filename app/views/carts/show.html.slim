@@ -1,41 +1,43 @@
 .container
-  h1 Cart#show
+  h1 Your Shopping Cart
 
-  | #{current_user.username if current_user}
-  | Guest Cart #{if !current_user}
-
-
-  table.table
-    thead
-      tr
-        th[scope="col"]
-          | #
-        th[scope="col"]
-          | Quantity
-        th[scope="col"]
-          | Product
-        th[scope="col"]
-          | Price (Each)
-        th[scope="col"]
-          | Sub Total
-        th
-          |
-    tbody
-      - @presenter.bundles.each.with_index(1) do |bundle_item, index|
-        tr
-          td = index
-          td = bundle_item.quantity
-          td = bundle_item.name
-          td = bundle_item.price
-          td = bundle_item.subtotal
-          td = link_to 'Delete from Cart', remove_from_cart_path(bundle_item.line_id), method: :delete, class: 'btn btn-danger btn-sm'
+    | @#{current_user.username if current_user}
 
 
+  .container
+    .card
+      table.table
+        thead
+          tr
+            th[scope="col"]
+              | #
+            th[scope="col"]
+              | Quantity
+            th[scope="col"]
+              | Product
+            th[scope="col"]
+              | Price (Each)
+            th[scope="col"]
+              | Sub Total
+            th
+              |
+        tbody
+          - @presenter.bundles.each.with_index(1) do |bundle_item, index|
+            tr
+              td = index
+              td = bundle_item.quantity
+              td = bundle_item.name
+              td = bundle_item.price
+              td = bundle_item.subtotal
+              td = link_to 'Delete from Cart', remove_from_cart_path(bundle_item.line_id), method: :delete, class: 'btn btn-danger btn-sm'
+    br
+    .card
+      h1
+      |Total Amount :
+      = current_user.cart_total_price
 
-= current_user.cart_total_price
-
-  p
-  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart'].blank? if !current_user
-  p
-  =
-  = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless current_user.get_cart_products.blank? if current_user
+      p
+      = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless session['cart'].blank? if !current_user
+      p
+      =
+      = link_to "Checkout", new_transaction_path, class:"btn btn-info" unless current_user.get_cart_products.blank? if current_user

@@ -11,7 +11,7 @@ class Presenters::CartPresenter
     cart_hash.each do |key, value|
       result << Bundle.new(key, value.size)
     end
-    
+
     result
   end
 
