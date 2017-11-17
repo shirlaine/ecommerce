@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :index
     end
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :create]
   resources :transactions, only: [:new, :create]
 
   resource :cart, only: [:show]
