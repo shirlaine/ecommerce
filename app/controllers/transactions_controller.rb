@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
     )
     if @result.success?
       current_user.purchase_cart_products!
-      redirect_to root_url, notice: 'Congraulations! Your transaction was successfully completed!'
+      redirect_to root_url, notice: 'Congratulations! Your transaction was successfully completed!'
     else
       flash[:alert] = 'Something went wrong while processing your transaction. Please try again!'
       gon.client_token = generate_client_token
